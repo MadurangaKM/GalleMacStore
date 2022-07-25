@@ -4,7 +4,9 @@ import {
   AiOutlinePlus,
   AiFillStar,
   AiOutlineStar,
+  AiOutlineArrowLeft,
 } from "react-icons/ai";
+import Link from "next/link";
 
 import { client, urlFor } from "../../lib/client";
 import { Product } from "../../components";
@@ -23,6 +25,13 @@ const ProductDetails = ({ product, products }) => {
 
   return (
     <div>
+      <Link href="/">
+        <div className="back_button">
+          <AiOutlineArrowLeft />
+          <h4>BACK</h4>
+        </div>
+      </Link>
+
       <div className="product-detail-container">
         <div>
           <div className="image-container">
