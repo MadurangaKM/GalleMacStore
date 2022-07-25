@@ -11,7 +11,6 @@ import toast from "react-hot-toast";
 
 import { useStateContext } from "../context/StateContext";
 import { urlFor } from "../lib/client";
-// import getStripe from "../lib/getStripe";
 
 const Cart = () => {
   const cartRef = useRef();
@@ -23,26 +22,6 @@ const Cart = () => {
     toggleCartItemQuanitity,
     onRemove,
   } = useStateContext();
-
-  //   const handleCheckout = async () => {
-  //     const stripe = await getStripe();
-
-  //     const response = await fetch("/api/stripe", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(cartItems),
-  //     });
-
-  //     if (response.statusCode === 500) return;
-
-  //     const data = await response.json();
-
-  //     toast.loading("Redirecting...");
-
-  //     stripe.redirectToCheckout({ sessionId: data.id });
-  //   };
 
   return (
     <div className="cart-wrapper" ref={cartRef}>
@@ -84,7 +63,7 @@ const Cart = () => {
                 <div className="item-desc">
                   <div className="flex top">
                     <h5>{item.name}</h5>
-                    <h4>${item.price}</h4>
+                    <h4>Rs{item.price}</h4>
                   </div>
                   <div className="flex bottom">
                     <div>
@@ -126,10 +105,10 @@ const Cart = () => {
           <div className="cart-bottom">
             <div className="total">
               <h3>Subtotal:</h3>
-              <h3>${totalPrice}</h3>
+              <h3>Rs{totalPrice}</h3>
             </div>
             <div className="btn-container">
-              <button type="button" className="btn" onClick={handleCheckout}>
+              <button type="button" className="btn">
                 Pay with Stripe
               </button>
             </div>
